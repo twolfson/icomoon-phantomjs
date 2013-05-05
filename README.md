@@ -1,6 +1,8 @@
 # icomoon-phantomjs
 
-IcoMoon driver written in PhantomJS
+[IcoMoon][icomoon] driver written in PhantomJS
+
+[icomoon]: http://icomoon.io/app/
 
 ## Getting Started
 ```shell
