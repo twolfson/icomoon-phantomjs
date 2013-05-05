@@ -7,7 +7,7 @@ IcoMoon driver written in PhantomJS
 # Install module via npm
 npm install -g icomoon-phantomjs
 
-# Alternatively, you can clone the repo and run `casperjs lib/icomoon-phantomjs.js`
+# Alternatively, you can clone the repo and run `phantomjs lib/icomoon-phantomjs.js`
 # instead of `icomoon-phantomjs`
 
 # Create a JSON file with absolute paths of SVGs to compile
