@@ -31,7 +31,8 @@
   "devDependencies": {
     "grunt": "~0.3.17",
     "doubleshot": "~1.0.2",
-    "temporary": "0.0.5"
+    "temporary": "0.0.5",
+    "request": "~2.21.0"
   },
   "keywords": []
 }

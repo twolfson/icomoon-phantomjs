@@ -1,7 +1,7 @@
+// Load in modules
 var assert = require('assert'),
-    path = require('path'),
-    exec = require('child_process').exec,
-    Tempfile = require('temporary/lib/file');
+    path = require('path');
+
 describe('A set of SVGs', function () {
   before(function () {
     this.files = [
@@ -12,6 +12,8 @@ describe('A set of SVGs', function () {
   });
 
   describe('processed by IcoMoon', function () {
+    var exec = require('child_process').exec,
+        Tempfile = require('temporary/lib/file');
     before(function (done) {
       // Write the files to a temporary file
       var tmp = new Tempfile(),
@@ -30,11 +32,25 @@ describe('A set of SVGs', function () {
     });
 
     it('returns a valid URL', function () {
-      console.log(this.stdout);
       assert.notEqual(this.stdout, '');
     });
 
     describe('returns a zip file', function () {
+      var request = require('request');
+      before(function (done) {
+        // Download the file and save it for later
+        var url = this.stdout,
+            that = this;
+        request(url, function (err, res, body) {
+          that.body = body;
+          done(err);
+        });
+      });
+
+      before(function () {
+        console.log(this.body);
+      });
+
       it('contains a CSS sheet inside of the zip file', function () {
 
       });
