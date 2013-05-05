@@ -36,23 +36,33 @@ describe('A set of SVGs', function () {
     });
 
     describe('returns a zip file', function () {
+      // Download the file and save it for later
       var request = require('request');
       before(function (done) {
-        // Download the file and save it for later
         var url = this.stdout,
             that = this;
-        request(url, function (err, res, body) {
-          that.body = body;
+        request({'url': url, 'encoding': 'binary'}, function (err, res, body) {
+          that.zipBody = body;
           done(err);
         });
       });
 
+      // Unzip the file
+      var Zip = require('node-zip');
       before(function () {
-        console.log(this.body);
+        this.zip = new Zip(this.zipBody);
       });
 
       it('contains a CSS sheet inside of the zip file', function () {
+        // DEV: Looks like icomoon69021/style.css
+        // Find any style.css keys
+        var zipFiles = this.zip.files,
+            keys = Object.getOwnPropertyNames(zipFiles),
+            cssKey = keys.filter(function (name) { return name.match('style.css'); })[0];
 
+        // Assert the key exists and the file contents are non-empty
+        assert.notEqual(cssKey, undefined);
+        assert.notEqual(zipFiles[cssKey], '');
       });
     });
   });
