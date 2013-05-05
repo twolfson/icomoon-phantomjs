@@ -23,11 +23,13 @@ module.exports = function(grunt) {
         boss: true,
         eqnull: true,
         node: true,
+        browser: true,
 
         strict: false
       },
       globals: {
-        exports: true
+        exports: true,
+        $: true
       }
     }
   });
