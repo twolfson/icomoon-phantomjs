@@ -30,7 +30,8 @@ icomoon-phantomjs path/to/json/containing/svg/paths
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint your code using [grunt](https://github.com/gruntjs/grunt) and test via `npm test`.
 
-## Resources
+## Attribution
+### Test files
 <a href="http://thenounproject.com/noun/building-block/#icon-No5218" target="_blank">Building Block</a> designed by <a href="http://thenounproject.com/Mikhail1986" target="_blank">Michael Rowe</a> from The Noun Project
 
 <a href="http://thenounproject.com/noun/eye/#icon-No5001" target="_blank">Eye</a> designed by <a href="http://thenounproject.com/DmitryBaranovskiy" target="_blank">Dmitry Baranovskiy</a> from The Noun Project
