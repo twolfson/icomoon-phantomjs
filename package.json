@@ -32,13 +32,15 @@
     "preinstall": "phantomjs --version",
     "test": "mocha"
   },
+  "dependencies": {
+    "async": "~0.2.8"
+  },
   "devDependencies": {
     "grunt": "~0.3.17",
     "temporary": "0.0.5",
     "request": "~2.21.0",
     "node-zip": "~1.0.1",
-    "mocha": "~1.9.0",
-    "grunt-curl": "~1.0.0"
+    "mocha": "~1.9.0"
   },
   "keywords": [
     "phantomjs",
@@ -46,8 +48,5 @@
     "font",
     "icon",
     "svg"
-  ],
-  "dependencies": {
-    "nimble": "0.0.2"
-  }
+  ]
 }
