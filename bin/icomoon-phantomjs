@@ -11,7 +11,7 @@ var spawn = require('child_process').spawn,
 args.push.apply(args, process.argv.slice(2));
 
 // Spawn icomoon-phantomjs
-var proc = spawn('casperjs', args, { customFds: [0,1,2] });
+var proc = spawn('phantomjs', args, { customFds: [0,1,2] });
 proc.on('exit', function (code, signal) {
   process.on('exit', function(){
     if (signal) {
