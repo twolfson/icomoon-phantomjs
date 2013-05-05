@@ -16,14 +16,16 @@ describe('A set of SVGs', function () {
       // Write the files to a temporary file
       var tmp = new Tempfile(),
           filesJSON = JSON.stringify(this.files, 'utf8');
-      tmp.writeSync(filesJSON);
+      tmp.writeFileSync(filesJSON);
 
       // Run our script
-      var that = this;
-      exec('casperjs ' + tmp.path, function (err, stdout, stderr) {
+      var that = this,
+          scriptPath = path.join(__dirname, '../lib/icomoon-phantomjs.js');
+      this.timeout(5000);
+      exec('casperjs ' + scriptPath + ' ' + tmp.path, function (err, stdout, stderr) {
         // Save the output and calback
         that.stdout = stdout;
-        cb(err);
+        done(err);
       });
     });
 
