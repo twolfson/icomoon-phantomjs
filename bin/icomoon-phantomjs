@@ -1,0 +1,23 @@
+#!/usr/bin/env node
+
+// Based heavily off of https://github.com/visionmedia/mocha/blob/e224188798cd1e871f364631115458dec59a1516/bin/mocha
+
+// Set up normal arguments
+var spawn = require('child_process').spawn,
+    path = require('path'),
+    args = [path.join(__dirname, '../lib/icomoon-phantomjs.js')];
+
+// Append user arguments
+args.push.apply(args, process.argv.slice(2));
+
+// Spawn icomoon-phantomjs
+var proc = spawn('casperjs', args, { customFds: [0,1,2] });
+proc.on('exit', function (code, signal) {
+  process.on('exit', function(){
+    if (signal) {
+      process.kill(process.pid, signal);
+    } else {
+      process.exit(code);
+    }
+  });
+});

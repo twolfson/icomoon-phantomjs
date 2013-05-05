@@ -21,6 +21,9 @@
       "url": "https://github.com/twolfson/icomoon-phantomjs/blob/master/LICENSE-MIT"
     }
   ],
+  "bin": {
+    "icomoon-phantomjs": "bin/icomoon-phantomjs"
+  },
   "main": "lib/icomoon-phantomjs",
   "engines": {
     "node": ">= 0.6.0"
@@ -35,5 +38,11 @@
     "node-zip": "~1.0.1",
     "mocha": "~1.9.0"
   },
-  "keywords": []
+  "keywords": [
+    "phantomjs",
+    "icomoon",
+    "font",
+    "icon",
+    "svg"
+  ]
 }
