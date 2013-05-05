@@ -21,7 +21,7 @@ describe('A set of SVGs', function () {
       // Run our script
       var that = this,
           scriptPath = path.join(__dirname, '../lib/icomoon-phantomjs.js');
-      this.timeout(5000);
+      this.timeout(60000);
       exec('casperjs ' + scriptPath + ' ' + tmp.path, function (err, stdout, stderr) {
         // Save the output and calback
         that.stdout = stdout;
@@ -30,6 +30,7 @@ describe('A set of SVGs', function () {
     });
 
     it('returns a valid URL', function () {
+      console.log(this.stdout);
       assert.notEqual(this.stdout, '');
     });
 
