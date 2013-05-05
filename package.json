@@ -29,6 +29,7 @@
     "node": ">= 0.6.0"
   },
   "scripts": {
+    "preinstall": "phantomjs --version",
     "test": "mocha"
   },
   "devDependencies": {
