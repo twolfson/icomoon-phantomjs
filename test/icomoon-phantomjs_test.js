@@ -1,34 +1,40 @@
-var icomoon_phantomjs = require('../lib/icomoon-phantomjs.js');
+var assert = require('assert'),
+    path = require('path'),
+    exec = require('child_process').exec,
+    Tempfile = require('temporary/lib/file');
+describe('A set of SVGs', function () {
+  before(function () {
+    this.files = [
+      path.join(__dirname, '/test_files/eye.svg'),
+      path.join(__dirname, '/test_files/moon.svg'),
+      path.join(__dirname, '/test_files/building_block.svg')
+    ];
+  });
 
-/*
-  ======== A Handy Little Nodeunit Reference ========
-  https://github.com/caolan/nodeunit
+  describe('processed by IcoMoon', function () {
+    before(function (done) {
+      // Write the files to a temporary file
+      var tmp = new Tempfile(),
+          filesJSON = JSON.stringify(this.files, 'utf8');
+      tmp.writeSync(filesJSON);
 
-  Test methods:
-    test.expect(numAssertions)
-    test.done()
-  Test assertions:
-    test.ok(value, [message])
-    test.equal(actual, expected, [message])
-    test.notEqual(actual, expected, [message])
-    test.deepEqual(actual, expected, [message])
-    test.notDeepEqual(actual, expected, [message])
-    test.strictEqual(actual, expected, [message])
-    test.notStrictEqual(actual, expected, [message])
-    test.throws(block, [error], [message])
-    test.doesNotThrow(block, [error], [message])
-    test.ifError(value)
-*/
+      // Run our script
+      var that = this;
+      exec('casperjs ' + tmp.path, function (err, stdout, stderr) {
+        // Save the output and calback
+        that.stdout = stdout;
+        cb(err);
+      });
+    });
 
-exports['awesome'] = {
-  setUp: function(done) {
-    // setup here
-    done();
-  },
-  'no args': function(test) {
-    test.expect(1);
-    // tests here
-    test.equal(icomoon_phantomjs.awesome(), 'awesome', 'should be awesome.');
-    test.done();
-  }
-};
+    it('returns a valid URL', function () {
+      assert.notEqual(this.stdout, '');
+    });
+
+    describe('returns a zip file', function () {
+      it('contains a CSS sheet inside of the zip file', function () {
+
+      });
+    });
+  });
+});

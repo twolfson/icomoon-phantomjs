@@ -26,10 +26,12 @@
     "node": ">= 0.6.0"
   },
   "scripts": {
-    "test": "grunt test"
+    "test": "mocha"
   },
   "devDependencies": {
-    "grunt": "~0.3.17"
+    "grunt": "~0.3.17",
+    "doubleshot": "~1.0.2",
+    "temporary": "0.0.5"
   },
   "keywords": []
 }
