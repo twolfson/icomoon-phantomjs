@@ -1,4 +1,4 @@
-# icomoon-phantomjs
+# icomoon-phantomjs [![Donate on Gittip](http://badgr.co/gittip/twolfson.png)](https://www.gittip.com/twolfson/)
 
 [IcoMoon][icomoon] driver written in PhantomJS
 
