@@ -1,4 +1,4 @@
-# icomoon-phantomjs [![Donate on Gittip](http://badgr.co/gittip/twolfson.png)](https://www.gittip.com/twolfson/)
+# icomoon-phantomjs
 
 [IcoMoon][icomoon] driver written in PhantomJS
 
@@ -37,6 +37,14 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 <a href="http://thenounproject.com/noun/eye/#icon-No5001" target="_blank">Eye</a> designed by <a href="http://thenounproject.com/DmitryBaranovskiy" target="_blank">Dmitry Baranovskiy</a> from The Noun Project
 
 <a href="http://thenounproject.com/noun/moon/#icon-No2853" target="_blank">Moon</a> designed by <a href="http://thenounproject.com/somerandomdude" target="_blank">P.J. Onori</a> from The Noun Project
+
+## Donating
+Support this project and [others by twolfson][gittip] via [gittip][].
+
+[![Support via Gittip][gittip-badge]][gittip]
+
+[gittip-badge]: https://rawgithub.com/twolfson/gittip-badge/master/dist/gittip.png
+[gittip]: https://www.gittip.com/twolfson/
 
 ## License
 Copyright (c) 2013 Todd Wolfson
