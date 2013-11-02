@@ -1,5 +1,7 @@
 # icomoon-phantomjs changelog
-0.2.6 - Updated url to point to old icomoon
+0.2.7 - Updated url to point to old icomoon
+
+0.2.6 - Added gittip badge
 
 0.2.5 - Added validation against PhantomJS version
 
