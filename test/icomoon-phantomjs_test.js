@@ -27,8 +27,13 @@ describe('A set of SVGs', function () {
       exec('phantomjs ' + scriptPath + ' ' + tmp.path, function (err, stdout, stderr) {
         // Save the output and calback
         that.stdout = stdout;
+        that.stderr = stderr;
         done(err);
       });
+    });
+
+    it('does not output anything to stderr', function () {
+      assert.strictEqual(this.stderr, '');
     });
 
     it('returns a valid URL', function () {
