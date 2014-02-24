@@ -1,4 +1,6 @@
 # icomoon-phantomjs changelog
+0.2.8 - Added error logger to PhantomJS script
+
 0.2.7 - Updated url to point to old icomoon
 
 0.2.6 - Added gittip badge
