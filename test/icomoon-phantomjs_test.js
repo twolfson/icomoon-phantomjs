@@ -26,6 +26,9 @@ describe('A set of SVGs', function () {
       this.timeout(60000);
       exec('phantomjs ' + scriptPath + ' ' + tmp.path, function (err, stdout, stderr) {
         // Save the output and calback
+        if (stderr) {
+          console.error('phantomjs stderr: ', stderr);
+        }
         that.stdout = stdout;
         done(err);
       });
