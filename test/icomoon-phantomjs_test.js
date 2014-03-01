@@ -1,6 +1,18 @@
 // Load in modules
 var assert = require('assert'),
-    path = require('path');
+    path = require('path'),
+    express = require('express'),
+    eightTrack = require('eight-track');
+
+before(function startEightTrackServer () {
+  this.app = express().use(eightTrack({
+    url: 'http://icomoon.io',
+    fixtureDir: __dirname + '/test_files/icomoon-http'
+  })).listen(1337);
+});
+after(function stopEightTrackServer (done) {
+  this.app.close(done);
+});
 
 describe('A set of SVGs', function () {
   before(function () {
