@@ -5,7 +5,11 @@ var assert = require('assert'),
     eightTrack = require('eight-track');
 
 before(function startEightTrackServer () {
-  this.app = express().use(eightTrack({
+  this.app = express().use(function beforeHandler (req, res, next) {
+    console.log(req.url);
+    console.log(req.body);
+    next();
+  }).use(eightTrack({
     url: 'http://icomoon.io',
     fixtureDir: __dirname + '/test_files/icomoon-http'
   })).listen(1337);
