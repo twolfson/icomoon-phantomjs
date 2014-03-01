@@ -35,7 +35,7 @@ describe('A set of SVGs', function () {
       // Run our script
       var that = this,
           scriptPath = path.join(__dirname, '../lib/icomoon-phantomjs.js');
-      this.timeout(60000);
+      this.timeout(15000);
       exec('phantomjs ' + scriptPath + ' ' + tmp.path, function (err, stdout, stderr) {
         // Save the output and calback
         if (stderr) {
