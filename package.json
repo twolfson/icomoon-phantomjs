@@ -39,7 +39,9 @@
     "request": "~2.21.0",
     "node-zip": "~1.0.1",
     "mocha": "~1.9.0",
-    "grunt-curl": "~1.0.0"
+    "grunt-curl": "~1.0.0",
+    "eight-track": "~1.4.1",
+    "express": "~3.4.8"
   },
   "keywords": [
     "phantomjs",
