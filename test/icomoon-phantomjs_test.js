@@ -4,11 +4,11 @@ var assert = require('assert'),
     path = require('path'),
     Tempfile = require('temporary/lib/file');
 
-function runIcomoonPhantomjs() {
+function runIcomoonPhantomjs(files) {
   before(function runIcomoonPhantomjsFn (done) {
     // Write the files to a temporary file
     var tmp = new Tempfile(),
-        filesJSON = JSON.stringify(this.files, 'utf8');
+        filesJSON = JSON.stringify(files, 'utf8');
     tmp.writeFileSync(filesJSON);
 
     // Run our script
@@ -30,15 +30,15 @@ function runIcomoonPhantomjs() {
 }
 
 describe('A set of SVGs', function () {
-  before(function () {
-    this.files = [
-      path.join(__dirname, '/test_files/eye.svg'),
-      path.join(__dirname, '/test_files/moon.svg'),
-      path.join(__dirname, '/test_files/building_block.svg')
-    ];
-  });
+  var svgs = [
+    path.join(__dirname, '/test_files/eye.svg'),
+    path.join(__dirname, '/test_files/moon.svg'),
+    path.join(__dirname, '/test_files/building_block.svg')
+  ];
 
   describe('processed by IcoMoon', function () {
+    runIcomoonPhantomjs(svgs);
+
     it('returns a valid URL', function () {
       assert.notEqual(this.stdout, '');
     });
