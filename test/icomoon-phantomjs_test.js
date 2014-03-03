@@ -1,5 +1,5 @@
 // Load in modules
-var assert = require('assert'),
+var expect = require('chai').expect,
     exec = require('child_process').exec,
     path = require('path'),
     Tempfile = require('temporary/lib/file');
@@ -39,9 +39,9 @@ describe('A set of SVGs', function () {
     runIcomoonPhantomjs(svgs);
 
     it('returns a valid URL', function () {
-      assert.strictEqual(this.stderr, '');
-      assert.strictEqual(this.err, null);
-      assert.notEqual(this.stdout, '');
+      expect(this.stderr).to.equal('');
+      expect(this.err).to.equal(null);
+      expect(this.stdout).to.not.equal('');
     });
 
     describe('returns a zip file', function () {
@@ -70,8 +70,8 @@ describe('A set of SVGs', function () {
             cssKey = keys.filter(function (name) { return name.match('style.css'); })[0];
 
         // Assert the key exists and the file contents are non-empty
-        assert.notEqual(cssKey, undefined);
-        assert.notEqual(zipFiles[cssKey], '');
+        expect(cssKey).to.not.equal(undefined);
+        expect(zipFiles[cssKey]).to.not.equal('');
       });
     });
   });
