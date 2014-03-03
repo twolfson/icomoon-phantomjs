@@ -75,3 +75,16 @@ describe('A set of SVGs', function () {
     });
   });
 });
+
+describe('An empty array of SVGs processed by IcoMoon', function () {
+  runIcomoonPhantomjs([]);
+
+  it('returns with an exit code of 2', function () {
+    expect(this.err).to.have.property('code', 2);
+  });
+
+  it.skip('informs the user what went wrong via stderr', function () {
+    // TODO: Update text
+    expect(this.stderr).to.contain('went wrong...');
+  });
+});
