@@ -10,7 +10,6 @@ function runIcomoonPhantomjs(files) {
     var tmp = new Tempfile(),
         filesJSON = JSON.stringify(files, 'utf8');
     tmp.writeFileSync(filesJSON);
-    console.log(tmp.path);
 
     // Run our script
     var that = this,
@@ -18,11 +17,10 @@ function runIcomoonPhantomjs(files) {
     this.timeout(20000);
     exec('phantomjs ' + scriptPath + ' ' + tmp.path, function (err, stdout, stderr) {
       // Save the output and calback
-      if (stderr) {
-        console.error('phantomjs stderr: ', stderr);
-      }
+      that.err = err;
       that.stdout = stdout;
-      done(err);
+      that.stderr = stderr;
+      done();
     });
   });
   after(function cleanupThis () {
@@ -41,6 +39,8 @@ describe('A set of SVGs', function () {
     runIcomoonPhantomjs(svgs);
 
     it('returns a valid URL', function () {
+      assert.strictEqual(this.stderr, '');
+      assert.strictEqual(this.err, null);
       assert.notEqual(this.stdout, '');
     });
 
