@@ -85,7 +85,7 @@ describe('An empty array of SVGs processed by IcoMoon', function () {
   it('exits with an error', function () {
     expect(this.err).to.not.equal(null);
   });
-  it.only('informs the user what to next', function () {
+  it('informs the user what to next', function () {
     expect(this.stderr).to.contain('Please try your SVGs inside icomoon itself, http://icomoon.io/app-old');
   });
 
