@@ -10,11 +10,12 @@ function runIcomoonPhantomjs(files) {
     var tmp = new Tempfile(),
         filesJSON = JSON.stringify(files, 'utf8');
     tmp.writeFileSync(filesJSON);
+    console.log(tmp.path);
 
     // Run our script
     var that = this,
         scriptPath = path.join(__dirname, '../lib/icomoon-phantomjs.js');
-    this.timeout(60000);
+    this.timeout(20000);
     exec('phantomjs ' + scriptPath + ' ' + tmp.path, function (err, stdout, stderr) {
       // Save the output and calback
       if (stderr) {
@@ -76,7 +77,7 @@ describe('A set of SVGs', function () {
   });
 });
 
-describe('An empty array of SVGs processed by IcoMoon', function () {
+describe.only('An empty array of SVGs processed by IcoMoon', function () {
   runIcomoonPhantomjs([]);
 
   it('returns with an exit code of 2', function () {
