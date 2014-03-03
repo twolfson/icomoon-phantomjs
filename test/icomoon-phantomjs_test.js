@@ -24,7 +24,9 @@ function runIcomoonPhantomjs(files) {
     });
   });
   after(function cleanupThis () {
+    delete this.err;
     delete this.stdout;
+    delete this.stderr;
   });
 }
 
@@ -80,10 +82,17 @@ describe('A set of SVGs', function () {
 describe.only('An empty array of SVGs processed by IcoMoon', function () {
   runIcomoonPhantomjs([]);
 
-  it('returns with an exit code of 2', function () {
-    expect(this.err).to.have.property('code', 2);
+  it('exits with an error', function () {
+    expect(this.err).to.not.equal(null);
+  });
+  it('informs the user what to next', function () {
+    expect(this.stderr).to.contain('went wrong...');
   });
 
+  // TODO: Handle these eventually
+  it.skip('exits with an semantic error code', function () {
+    expect(this.err).to.have.property('code', 2);
+  });
   it.skip('informs the user what went wrong via stderr', function () {
     // TODO: Update text
     expect(this.stderr).to.contain('went wrong...');
