@@ -1,6 +1,33 @@
 // Load in modules
 var assert = require('assert'),
-    path = require('path');
+    exec = require('child_process').exec,
+    path = require('path'),
+    Tempfile = require('temporary/lib/file');
+
+function runIcomoonPhantomjs() {
+  before(function runIcomoonPhantomjsFn (done) {
+    // Write the files to a temporary file
+    var tmp = new Tempfile(),
+        filesJSON = JSON.stringify(this.files, 'utf8');
+    tmp.writeFileSync(filesJSON);
+
+    // Run our script
+    var that = this,
+        scriptPath = path.join(__dirname, '../lib/icomoon-phantomjs.js');
+    this.timeout(60000);
+    exec('phantomjs ' + scriptPath + ' ' + tmp.path, function (err, stdout, stderr) {
+      // Save the output and calback
+      if (stderr) {
+        console.error('phantomjs stderr: ', stderr);
+      }
+      that.stdout = stdout;
+      done(err);
+    });
+  });
+  after(function cleanupThis () {
+    delete this.stdout;
+  });
+}
 
 describe('A set of SVGs', function () {
   before(function () {
@@ -12,28 +39,6 @@ describe('A set of SVGs', function () {
   });
 
   describe('processed by IcoMoon', function () {
-    var exec = require('child_process').exec,
-        Tempfile = require('temporary/lib/file');
-    before(function (done) {
-      // Write the files to a temporary file
-      var tmp = new Tempfile(),
-          filesJSON = JSON.stringify(this.files, 'utf8');
-      tmp.writeFileSync(filesJSON);
-
-      // Run our script
-      var that = this,
-          scriptPath = path.join(__dirname, '../lib/icomoon-phantomjs.js');
-      this.timeout(60000);
-      exec('phantomjs ' + scriptPath + ' ' + tmp.path, function (err, stdout, stderr) {
-        // Save the output and calback
-        if (stderr) {
-          console.error('phantomjs stderr: ', stderr);
-        }
-        that.stdout = stdout;
-        done(err);
-      });
-    });
-
     it('returns a valid URL', function () {
       assert.notEqual(this.stdout, '');
     });
