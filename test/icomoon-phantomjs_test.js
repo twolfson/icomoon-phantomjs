@@ -109,7 +109,7 @@ describe.only('An SVG containing a gradient processed by IcoMoon', function () {
     expect(this.err).to.not.equal(null);
   });
   it('informs the user what went wrong', function () {
-    expect(this.stderr).to.contain('');
+    expect(this.stderr).to.contain('icomoon error encountered: Error parsing your file(s)');
   });
   it('informs to see what the script saw', function () {
     expect(this.stderr).to.contain('Saving debug screenshot to "icomoon-phantomjs-debug.png"');
