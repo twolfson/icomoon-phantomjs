@@ -1,0 +1,20 @@
+<svg xmlns:x="http://ns.adobe.com/Extensibility/1.0/" xmlns:i="http://ns.adobe.com/AdobeIllustrator/10.0/" xmlns:graph="http://ns.adobe.com/Graphs/1.0/" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/" version="1" id="Layer_1" x="0" y="0" width="190.99" height="33" viewBox="0" enable-background="new 0 0 190.992 33" xml:space="preserve">
+  <switch>
+    <foreignObject requiredExtensions="http://ns.adobe.com/AdobeIllustrator/10.0/" x="0" y="0" width="1" height="1">
+      <i:pgfRef xlink:href="#adobe_illustrator_pgf"/>
+    </foreignObject>
+    <g i:extraneous="self">
+      <path fill="#313A44" d="M18.42,28.589c2.649,27.997,25,50.342,52.991,52.979c-5.97,3.784-12.976,5.933-20.312,5.933  C29.81,87.5,12.5,70.19,12.5,48.896C12.5,41.559,14.648,34.559,18.42,28.589 M37.012,0C15.686,6.152,0,25.592,0,48.896  C0,77.124,22.876,100,51.099,100C74.402,100,93.848,84.302,100,62.988c-6.812,3.931-14.6,6.348-23.022,6.348  c-25.586,0-46.313-20.746-46.313-46.319C30.664,14.594,33.081,6.806,37.012,0L37.012,0z"/>
+      <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="163.54" y1="26.51" x2="177.98" y2="13.05">
+        <stop offset="0" stop-color="#35B5C8"/>
+        <stop offset="1" stop-color="#1B646E"/>
+        <a:midPointStop offset="0" stop-color="#35B5C8"/>
+        <a:midPointStop offset="0.5" stop-color="#35B5C8"/>
+        <a:midPointStop offset="1" stop-color="#1B646E"/>
+      </linearGradient>
+      <path fill="url(#SVGID_1_)" d="M163.99 0v27h27L163.99 0z"/>
+      <path fill="#FFFFFF" d="M84 7H8v19h76V7z"/>
+      <path fill="#FFFFFF" d="M18.42,28.589c2.649,27.997,25,50.342,52.991,52.979c-5.97,3.784-12.976,5.933-20.312,5.933  C29.81,87.5,12.5,70.19,12.5,48.896C12.5,41.559,14.648,34.559,18.42,28.589 M37.012,0C15.686,6.152,0,25.592,0,48.896  C0,77.124,22.876,100,51.099,100C74.402,100,93.848,84.302,100,62.988c-6.812,3.931-14.6,6.348-23.022,6.348  c-25.586,0-46.313-20.746-46.313-46.319C30.664,14.594,33.081,6.806,37.012,0L37.012,0z"/>
+    </g>
+  </switch>
+</svg>

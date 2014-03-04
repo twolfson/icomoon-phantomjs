@@ -98,3 +98,16 @@ describe('An empty array of SVGs processed by IcoMoon', function () {
     expect(this.stderr).to.contain('went wrong...');
   });
 });
+
+describe.only('An SVG containing a gradient processed by IcoMoon', function () {
+  runIcomoonPhantomjs([
+    path.join(__dirname, '/test_files/gradient.svg')
+  ]);
+
+  it('exits with an error', function () {
+    expect(this.err).to.equal(null);
+  });
+  it('informs the user what to next', function () {
+    expect(this.stderr).to.contain('Please try your SVGs inside icomoon itself, http://icomoon.io/app-old');
+  });
+});
