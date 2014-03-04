@@ -1,4 +1,6 @@
 # icomoon-phantomjs changelog
+0.4.0 - Added regression test for poorly formatted SVGs
+
 0.3.1 - Added Travis CI
 
 0.3.0 - Introduced timeouts to all `waitFor` loops and test against empty SVG array (grunt-fontsmith #11 and #12)
