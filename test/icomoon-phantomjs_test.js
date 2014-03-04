@@ -1,7 +1,8 @@
 // Load in modules
-var expect = require('chai').expect,
-    exec = require('child_process').exec,
+var exec = require('child_process').exec,
+    fs = require('fs'),
     path = require('path'),
+    expect = require('chai').expect,
     Tempfile = require('temporary/lib/file');
 
 function runIcomoonPhantomjs(files) {
@@ -15,7 +16,6 @@ function runIcomoonPhantomjs(files) {
     var that = this,
         scriptPath = path.join(__dirname, '../lib/icomoon-phantomjs.js');
     this.timeout(20000);
-    console.log(tmp.path);
     exec('phantomjs ' + scriptPath + ' ' + tmp.path, function (err, stdout, stderr) {
       // Save the output and calback
       that.err = err;
@@ -106,9 +106,14 @@ describe.only('An SVG containing a gradient processed by IcoMoon', function () {
   ]);
 
   it('exits with an error', function () {
-    expect(this.err).to.equal(null);
+    expect(this.err).to.not.equal(null);
   });
-  it('informs the user what to next', function () {
-    expect(this.stderr).to.contain('Please try your SVGs inside icomoon itself, http://icomoon.io/app-old');
+  it('informs the user what went wrong', function () {
+    expect(this.stderr).to.contain('');
+  });
+  it('informs to see what the script saw', function () {
+    expect(this.stderr).to.contain('Saving debug screenshot to "icomoon-phantomjs-debug.png"');
+    var debugImage = fs.statSync('icomoon-phantomjs-debug.png');
+    expect(debugImage.size).to.be.at.least(1);
   });
 });
