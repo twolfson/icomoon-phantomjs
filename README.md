@@ -1,4 +1,4 @@
-# icomoon-phantomjs
+# icomoon-phantomjs [![Build status](https://travis-ci.org/twolfson/icomoon-phantomjs.png?branch=master)](https://travis-ci.org/twolfson/icomoon-phantomjs)
 
 [IcoMoon][icomoon] driver written in PhantomJS
 
