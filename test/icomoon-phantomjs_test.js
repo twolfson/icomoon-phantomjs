@@ -100,7 +100,7 @@ describe('An empty array of SVGs processed by IcoMoon', function () {
   });
 });
 
-describe.only('An SVG containing a gradient processed by IcoMoon', function () {
+describe('An SVG containing a gradient processed by IcoMoon', function () {
   runIcomoonPhantomjs([
     path.join(__dirname, '/test_files/gradient.svg')
   ]);
