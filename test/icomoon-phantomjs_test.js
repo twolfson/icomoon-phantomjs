@@ -15,6 +15,7 @@ function runIcomoonPhantomjs(files) {
     var that = this,
         scriptPath = path.join(__dirname, '../lib/icomoon-phantomjs.js');
     this.timeout(20000);
+    console.log(tmp.path);
     exec('phantomjs ' + scriptPath + ' ' + tmp.path, function (err, stdout, stderr) {
       // Save the output and calback
       that.err = err;
