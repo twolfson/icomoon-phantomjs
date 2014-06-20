@@ -2,8 +2,22 @@
 var exec = require('child_process').exec,
     fs = require('fs'),
     path = require('path'),
+    eightTrack = require('eight-track'),
     expect = require('chai').expect,
+    express = require('express'),
     Tempfile = require('temporary/lib/file');
+
+before(function startEightTrackServer () {
+  this.app = express().use(function beforeHandler (req, res, next) {
+    next();
+  }).use(eightTrack({
+    url: 'http://icomoon.io',
+    fixtureDir: __dirname + '/test_files/icomoon-http'
+  })).listen(1337);
+});
+after(function stopEightTrackServer (done) {
+  this.app.close(done);
+});
 
 function runIcomoonPhantomjs(files) {
   before(function runIcomoonPhantomjsFn (done) {
