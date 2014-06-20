@@ -40,7 +40,8 @@
     "node-zip": "~1.0.1",
     "mocha": "~1.9.0",
     "grunt-curl": "~1.0.0",
-    "chai": "~1.9.0"
+    "chai": "~1.9.0",
+    "eight-track": "~2.1.0"
   },
   "keywords": [
     "phantomjs",
