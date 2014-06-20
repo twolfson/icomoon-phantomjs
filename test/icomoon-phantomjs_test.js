@@ -12,7 +12,12 @@ before(function startEightTrackServer () {
     next();
   }).use(eightTrack({
     url: 'http://icomoon.io',
-    fixtureDir: __dirname + '/test_files/icomoon-http'
+    fixtureDir: __dirname + '/test_files/icomoon-http',
+    normalizeFn: function (req) {
+      // Normalize the headers
+      delete req.headers;
+      return req;
+    }
   })).listen(1337);
 });
 after(function stopEightTrackServer (done) {
