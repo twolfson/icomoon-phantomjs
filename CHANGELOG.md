@@ -1,4 +1,6 @@
 # icomoon-phantomjs changelog
+0.4.1 - Upgraded `npm` inside Travis CI to fix `node@0.8` issues
+
 0.4.0 - Added regression test for poorly formatted SVGs
 
 0.3.1 - Added Travis CI
