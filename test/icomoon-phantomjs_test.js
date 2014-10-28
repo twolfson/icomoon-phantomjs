@@ -44,6 +44,7 @@ function runIcomoonPhantomjs(files) {
     var that = this,
         scriptPath = path.join(__dirname, '../lib/icomoon-phantomjs.js');
     this.timeout(20000);
+    console.log(quote(['phantomjs', '--ssl-protocol=tlsv1', scriptPath, tmp.path]));
     exec(quote(['phantomjs', '--ssl-protocol=tlsv1', scriptPath, tmp.path]), function (err, stdout, stderr) {
       // Save the output and calback
       that.err = err;
