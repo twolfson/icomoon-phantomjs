@@ -5,6 +5,7 @@ var exec = require('child_process').exec,
     eightTrack = require('eight-track'),
     expect = require('chai').expect,
     express = require('express'),
+    quote = require('shell-quote').quote,
     Tempfile = require('temporary/lib/file');
 
 before(function startEightTrackServer () {
@@ -36,7 +37,7 @@ function runIcomoonPhantomjs(files) {
     var that = this,
         scriptPath = path.join(__dirname, '../lib/icomoon-phantomjs.js');
     this.timeout(20000);
-    exec('phantomjs ' + scriptPath + ' ' + tmp.path, function (err, stdout, stderr) {
+    exec(quote(['phantomjs', '--ssl-protocol=tlsv1', scriptPath, tmp.path]), function (err, stdout, stderr) {
       // Save the output and calback
       that.err = err;
       that.stdout = stdout;
@@ -106,8 +107,8 @@ describe('An empty array of SVGs processed by IcoMoon', function () {
   it('exits with an error', function () {
     expect(this.err).to.not.equal(null);
   });
-  it('informs the user what to next', function () {
-    expect(this.stderr).to.contain('Please try your SVGs inside icomoon itself, http://icomoon.io/app-old');
+  it('informs the user what to do next', function () {
+    expect(this.stderr).to.contain('Please try your SVGs inside icomoon itself, https://icomoon.io/app-old');
   });
 
   // TODO: Handle these eventually

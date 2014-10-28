@@ -1,4 +1,6 @@
 # icomoon-phantomjs changelog
+0.5.0 - Moved to `https` protocol instead of depending on 301. Fixed HTTPS test suite issues
+
 0.4.2 - Bumping timeout for ticking checkboxes to fix `twolfson/grunt-fontsmith#23`. By @aminmeyghani
 
 0.4.1 - Upgraded `npm` inside Travis CI to fix `node@0.8` issues
