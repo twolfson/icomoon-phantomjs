@@ -3,6 +3,7 @@ var exec = require('child_process').exec,
     fs = require('fs'),
     path = require('path'),
     expect = require('chai').expect,
+    quote = require('shell-quote').quote,
     Tempfile = require('temporary/lib/file');
 
 function runIcomoonPhantomjs(files) {
@@ -16,7 +17,7 @@ function runIcomoonPhantomjs(files) {
     var that = this,
         scriptPath = path.join(__dirname, '../lib/icomoon-phantomjs.js');
     this.timeout(20000);
-    exec('phantomjs ' + scriptPath + ' ' + tmp.path, function (err, stdout, stderr) {
+    exec(quote(['phantomjs', scriptPath, tmp.path]), function (err, stdout, stderr) {
       // Save the output and calback
       that.err = err;
       that.stdout = stdout;
