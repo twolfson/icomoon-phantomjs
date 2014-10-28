@@ -10,10 +10,10 @@ var exec = require('child_process').exec,
 
 before(function startEightTrackServer () {
   this.app = express().use(function beforeHandler (req, res, next) {
-    console.log(req.method, req.headers, req.body);
+    console.log(req.method, req.url, req.headers, req.body);
     next();
   }).use(eightTrack({
-    url: 'http://icomoon.io',
+    url: 'https://icomoon.io',
     fixtureDir: __dirname + '/test_files/icomoon-http',
     normalizeFn: function (req) {
       // Normalize the headers
