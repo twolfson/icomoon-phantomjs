@@ -9,6 +9,7 @@ var exec = require('child_process').exec,
 
 before(function startEightTrackServer () {
   this.app = express().use(function beforeHandler (req, res, next) {
+    console.log(req.method, req.headers, req.body);
     next();
   }).use(eightTrack({
     url: 'http://icomoon.io',
