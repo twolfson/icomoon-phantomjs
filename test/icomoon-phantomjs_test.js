@@ -10,7 +10,14 @@ var exec = require('child_process').exec,
 
 before(function startEightTrackServer () {
   this.app = express().use(function beforeHandler (req, res, next) {
-    console.log(req.method, req.url, req.headers, req.body);
+    // Record the request
+    console.log(req.method, req.url);
+
+    // Add a randomizer to guarantee cache miss
+    // DEV: This makes sure it isn't eight-track getting in the way
+    req.headers.hai = Math.random();
+
+    // Continue
     next();
   }).use(eightTrack({
     url: 'https://icomoon.io',
