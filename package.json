@@ -1,7 +1,7 @@
 {
   "name": "icomoon-phantomjs",
   "description": "IcoMoon driver written in PhantomJS",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "homepage": "https://github.com/twolfson/icomoon-phantomjs",
   "author": {
     "name": "Todd Wolfson",
