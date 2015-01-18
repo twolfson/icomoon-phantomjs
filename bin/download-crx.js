@@ -4,9 +4,8 @@ var progress = require('progress-stream');
 var request = require('request');
 
 // DEV: We wanted to use https://github.com/jiripospisil/chrome-ext-downloader for this but it seems broken
-// Generated via http://chrome-extension-downloader.com/how-does-it-work.php
+// URL generated via http://chrome-extension-downloader.com/how-does-it-work.php
 var icomoonUrl = 'https://clients2.google.com/service/update2/crx?response=redirect&prodversion=38.0&x=id%3Dkppingdhhalimbaehfmhldppemnmlcjd%26installsource%3Dondemand%26uc';
-// var icomoonUrl = 'http://google.com/';
 
 // Notify user we are downloading files
 console.log('Downloading "' + icomoonUrl + '"');
