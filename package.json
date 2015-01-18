@@ -29,6 +29,7 @@
     "node": ">= 0.6.0"
   },
   "scripts": {
+    "postinstall": "node bin/download-crx.js",
     "preinstall": "node utils/preinstall.js",
     "test": "mocha"
   },
