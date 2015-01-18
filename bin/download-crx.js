@@ -9,12 +9,17 @@ var request = require('request');
 var icomoonUrl = 'http://google.com/';
 
 // Request our file
-var req = request({url: icomoonUrl, encoding: null}, function handleContent (err, res, buff) {
-  // If there was an error, throw it
-  if (err) {
-    throw err;
-  }
+var req = request({url: icomoonUrl, encoding: null});
 
+// When an error occurs, throw it
+req.on('error', function handleError (err) {
+  throw err;
+});
+
+// When we receive a response
+req.on('response', function handleContent (res) {
+  // Find how big the file is
+  req.
   // TODO: Clean up old cache files
 
   // Otherwise, extract zip content to disk
