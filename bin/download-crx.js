@@ -8,18 +8,19 @@ var request = require('request');
 // var icomoonUrl = 'https://clients2.google.com/service/update2/crx?response=redirect&prodversion=38.0&x=id%3Dkppingdhhalimbaehfmhldppemnmlcjd%26installsource%3Dondemand%26uc';
 var icomoonUrl = 'http://google.com/';
 
+// Notify user we are downloading files
+console.log('Downloading "' + icomoonUrl + '"');
+
 // Request our file
-var req = request({url: icomoonUrl, encoding: null});
+var req = request({url: icomoonUrl, encoding: null}, function handleContent (err, res, buff) {
+  // If there was an error, throw it
+  if (err) {
+    throw err;
+  }
 
-// When an error occurs, throw it
-req.on('error', function handleError (err) {
-  throw err;
-});
+  // Notify user of completed download
+  console.log('Download complete!');
 
-// When we receive a response
-req.on('response', function handleContent (res) {
-  // Find how big the file is
-  req.
   // TODO: Clean up old cache files
 
   // Otherwise, extract zip content to disk
