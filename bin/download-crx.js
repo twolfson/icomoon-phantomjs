@@ -1,6 +1,6 @@
 // Load in our dependencies
 var AdmZip = require('adm-zip');
-var progress = require('progress');
+var progress = require('progress-stream');
 var request = require('request');
 
 // DEV: We wanted to use https://github.com/jiripospisil/chrome-ext-downloader for this but it seems broken
@@ -9,7 +9,7 @@ var request = require('request');
 var icomoonUrl = 'http://google.com/';
 
 // Request our file
-var req = request(icomoonUrl, function handleContent (err, res, buff) {
+var req = request({url: icomoonUrl, encoding: null}, function handleContent (err, res, buff) {
   // If there was an error, throw it
   if (err) {
     throw err;
