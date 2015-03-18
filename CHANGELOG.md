@@ -1,4 +1,6 @@
 # icomoon-phantomjs changelog
+0.6.0 - Upgraded to `temporary@0.0.8` to repair `node@0.12` compatibility
+
 0.5.1 - Bumping timeouts. Fix via @mandrean in #10
 
 0.5.0 - Moved to `https` protocol instead of depending on 301. Fixed HTTPS test suite issues
