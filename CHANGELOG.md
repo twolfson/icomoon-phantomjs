@@ -1,5 +1,7 @@
 # icomoon-phantomjs changelog
-0.6.0 - Upgraded to `temporary@0.0.8` to repair `node@0.12` compatibility
+0.6.1 - Fixed attribution in CHANGELOG
+
+0.6.0 - Upgraded to `temporary@0.0.8` to repair `node@0.12` compatibility via @tnajdek in #12
 
 0.5.1 - Bumping timeouts. Fix via @mandrean in #10
 
