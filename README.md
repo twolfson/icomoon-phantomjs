@@ -1,5 +1,18 @@
 # icomoon-phantomjs [![Build status](https://travis-ci.org/twolfson/icomoon-phantomjs.png?branch=master)](https://travis-ci.org/twolfson/icomoon-phantomjs)
 
+# DEPRECATED
+We are choosing to deprecate `fontsmith` and its family of libraries. They rely on a deprecated icomoon.io API, were never fully developed (e.g. missing SASS templates, multiple engines), and out of date (e.g. uses `grunt@0.3`).
+
+While we would love to keep everything running, we have to choose to prioritize other projects over this one. We suggest using `grunt-webfont` as an alternative:
+
+https://www.npmjs.com/package/grunt-webfont
+
+If you are interested in forking, feel free to (and maybe open an issue to let me know so we can link to it).
+
+If you have a minor request (e.g. cannot figure out how to use existing tool), feel free to open an issue describing your problem.
+
+----------------
+
 [IcoMoon][icomoon] driver written in PhantomJS
 
 [icomoon]: http://icomoon.io/app/
